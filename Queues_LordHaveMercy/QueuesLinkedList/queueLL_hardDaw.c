@@ -53,3 +53,37 @@ int main() {
 
     return 0;
 }
+
+void initQueue(Queue *q){
+    q->front = NULL;
+    q->rear = NULL;
+}
+
+bool isEmpty(Queue q){
+    return (q.front == NULL) ? true : false;
+}
+
+void enqueue(Queue *q, int id, String customer, String items[], int n){
+    Node *newNode = (Node*)malloc(sizeof(Node));
+    if(newNode != NULL){
+        strcpy(newNode->customer, customer);
+        newNode->orderId = id;
+        for(int i=0; i<n; i++){
+            *newNode->order.items[newNode->order.itemCount++] = items[i];
+        }
+        newNode->next = NULL;
+
+        //actual enqueueing
+        //when queue is empty
+        if(q->rear == NULL){
+            q->front = newNode;
+        }else{
+            q->rear->next = newNode;
+        }
+        q->rear = newNode;
+    }
+}
+
+Node* dequeue(Queue *q){
+    
+}
