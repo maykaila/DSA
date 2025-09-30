@@ -52,9 +52,9 @@ int main(){
 
 int getSearchLen(int hash, int actual){
     if(actual >= hash){
-        return (actual - hash + 1);
+        return (actual - hash + 1); //you can just remove this part
     }else{
-        return (MAX - hash) + actual + 1;
+        return (MAX - hash) + actual + 1; //since this already handles getting the search length whether or not the key < or > the actual index it inserted on
     }
 }
 
